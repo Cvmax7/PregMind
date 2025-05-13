@@ -1,0 +1,45 @@
+### model
+model_name_or_path: /mnt/workspace/Mindpilot/output/Meta-Llama-3-8B-Instruct-psyQA-sfted_v2
+trust_remote_code: true
+
+### method
+stage: rm
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_target: all
+
+### dataset
+dataset: /mnt/workspace/Mindpilot/dataset/PsyQA_comparison
+template: llama3
+cutoff_len: 2048
+max_samples: 1000
+overwrite_cache: true
+val_size: 0.1
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: /mnt/workspace/Mindpilot/saves/LLaMA3-8B-Chat/lora/rm
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: wandb  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+
+### train
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 8
+learning_rate: 0.00001
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+fp16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+
+### eval
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 500

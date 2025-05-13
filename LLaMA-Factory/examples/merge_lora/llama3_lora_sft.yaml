@@ -1,0 +1,14 @@
+### Note: DO NOT use quantized model or quantization_bit when merging lora adapters
+
+### model
+model_name_or_path: /mnt/workspace/Mindpilot/output/Meta-Llama-3-8B-Instruct-psyQA-sfted_v2
+adapter_name_or_path: /mnt/workspace/Mindpilot/saves/LLaMA3-8B-Chat/lora/ppo
+template: llama3
+trust_remote_code: true
+finetuning_type: lora
+
+### export
+export_dir: /mnt/workspace/Mindpilot/output/Meta-Llama-3-8B-Instruct-psyQA-RLHG
+export_size: 2
+export_device: cuda 
+export_legacy_format: false

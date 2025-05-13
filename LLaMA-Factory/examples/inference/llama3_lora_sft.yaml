@@ -1,0 +1,5 @@
+model_name_or_path: /mnt/workspace/Mindpilot/output/Meta-Llama-3-8B-Instruct-psyQA-RLHG
+adapter_name_or_path: /mnt/workspace/Mindpilot/saves/LLaMA3-8B-Chat/lora/ppo
+template: llama3
+infer_backend: huggingface  # choices: [huggingface, vllm, sglang]
+trust_remote_code: true
